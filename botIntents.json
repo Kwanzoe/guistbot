@@ -1,0 +1,153 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day","Hi"],
+         "responses": ["Hi there,I can answers questions related to GUIST.\nWhat do you wanna know?"],
+         "context": [""]
+        },
+        {"tag": "VC",
+            "patterns": ["VC vc", "vc", "GU VC", "VC Gauhati University", "Vice chancellor", "Vice", "Chancellor", "Vice chancellor GU"],
+            "responses": ["The current Vice Chancellor of Gauhati University is:Prof Pratap Jyoti Handique"],
+            "context": [""]
+        },
+        {"tag": "Director",
+            "patterns": ["Director of GUIST?", "director","Pricipal GUIST"],
+            "responses": ["Prof.Tulshi Bezboruah"],
+            "context": [""]
+        },
+        {"tag": "IT HOD",
+            "patterns": ["Head of Department  Information Technology IT?","IT HOD","Head of Department IT","Head of Department IT"],
+            "responses": ["Prof.Shikhar Kumar Sarma"],
+            "context": [""]
+        },
+        {"tag": "ECE HOD",
+            "patterns": ["Head of Department HOD Electronics ECE?","HOD ECE","Head of Department ECE"],
+            "responses": ["Prof.Kandarpa Kumar Sarma "],
+            "context": [""]
+
+        },
+        {"tag": "BIOTECH HOD",
+            "patterns": ["Head of Department HOD BET bioengineering?","HOD BET","Head of Department Biotech","HOD Biotech","Head of Department BET"],
+            "responses": ["Prof.Debabrat Baishya"],
+            "context": [""]
+
+        },
+        {"tag": "Applied Scinece HOD",
+            "patterns": ["Head of Department Applied Sciences ","HOD Applied Sciences"],
+            "responses": ["Prof.Eeshankur Saikia "],
+            "context": [""]
+
+        },
+        {"tag": "HOD and Director emails",
+            "patterns": ["Emails director", "email hod", "email head of department", "email", "emails","GUIST Emails"],
+            "responses": ["Prof.Tulshi Bezboruah (Director, GUIST):zbt@gauhati.ac.in\n Prof.Shikhar Kumar Sarma(HOD,IT DEPARTMENT):sks@gauhati.ac.in\n Prof.Kandarpa Kumar Sarma(HOD,ECE Department):kandarpaks@gauhati.ac.in\n Prof.Debabrat Baishya(HOD,BET Department)dbaishya@gauhati.ac.in\n Prof.Eeshankur Saikia(HOD,Applied Sciences): eeshankur@gauhati.ac.in"],
+            "context": [""]
+
+        },
+        {"tag": "Seats",
+            "patterns": ["seats branchwise","seats","capacity branchwise","branch capacity","seat capacity"],
+            "responses": ["Seats Capacity Branchwise:\n B.Tech. in Electronics and Communication Engineering :40 seats\n B.Tech. in Information Technology:27 seats\n B.Tech. in Computer Science & Engineering :27 seats\n B.Tech. in Biotechnology 30 seats"],
+            "context": [""]
+
+        },
+        {"tag": "Branches for UG",
+            "patterns": ["Branches","Total branches","B.tech Branches","UG Branches","Undergraduate Branches"],
+            "responses": ["There are four(4) branches in GUIST for B.Tech:\nComputer Science and Engineering (CSE)\nInformation Technology(IT)\nElectronics and Communications Engineering (ECE)\nBioengineering and Technology(BET)"],
+            "context": [""]
+
+        },
+
+        {"tag": "Departments",
+         "patterns": ["Departments","GUIST departments"],
+         "responses": ["Information Technology(IT),Electronics and Communication Engineering(ECE),Bioengineering and Technology(BET),Applied Sciences"],
+         "context": [""]
+        },
+
+       
+        {"tag": "Technical events",
+         "patterns": ["Techical Events","Tech events","tech competions"],
+         "responses": ["UTKRANTI:A 24-hour Hackathon and UDBHAV:A Robotics competition"],
+         "context": [""]
+        },
+
+        {"tag": "UTKRANTI",
+            "patterns": ["About UTKRANTI","UTKRANTI Details","UTKRANTI","Utkranti"],
+            "responses": ["It is a 24-hour Hackathon where students participate to hack daily life challenges and problems and define innovative technical solutions.\nThis event aims to enhance the students skills on a competitive level and open-up a gateway to start-upventures."],
+            "context": [""]
+           },
+
+        {"tag": "UDBHAV",
+        "patterns": ["UDBHAV","About UDBHAV","UDBHAV Details","Udbhav"],
+        "responses": ["It is a unique robotics competition where students are presented with a daily life challenge or task that needs to be fulfilled by implementing robotic solutions."],
+        "context": [""]
+        },
+
+        {"tag": "Technical Clubs in GUIST",
+        "patterns": ["clubs", "club", "Tech Clubs","Technical clubs", "societies", "Tech societies","Technical societies"],
+        "responses": ["Robotics & IoT Club ,Web Development Club "],
+        "context": [""]
+        },
+
+        {"tag": "Robotics & IoT Club",
+        "patterns": ["Robotics & IoT Club","Robotics Club","IOT club"],
+        "responses": ["Robotics & IoT Club : Students participate in training sessions and workshops to gather knowledge and skills upon embedded systems, sensors & actuators, motion dynamics and using IoT to build integrated networks devices."],
+        "context": [""]
+        },
+
+        {"tag": "Web Development Club",
+        "patterns": ["Web Development Club","Web dev club"],
+        "responses": ["Web Development Club : Students participate in training sessions and workshops to gather knowledge and skills upon web development, android development and networking."],
+        "context": [""]
+        }, 
+        {"tag": "Placement Companies",
+        "patterns": ["Placement companies","placement organisations","Hiring companies","placement organizations","hiring companies","Hiring organisations","companies"],
+        "responses": ["Some of the prominent hiring organizations in GUIST so far are:\nTCS\nWipro\nIBM\nCognizant\nAccenture\nCapgemini\nFederal Bank etc."],
+        "context": [""]
+        },
+
+        {"tag": "noanswer",
+         "patterns": [],
+         "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+         "context": [""]
+        },
+
+        {"tag": "GU market",
+            "patterns": ["GU market location", "GU market located", "GU market details","where GU market","Gauhati University market"],
+            "responses": ["Gauhati University market is located near GU  field,adjacent to Department of Sociology."],
+            "context": [""]
+           },
+           
+        {"tag": "Fee structure",
+            "patterns": ["Fees", "Fee structure", "B.tech fees","fees structure"],
+            "responses": ["THE fees structure for B.tech are:\nOdd Semester:Rs26060.00\nEven Semester:Rs19470"],
+            "context": [""]
+           },
+
+
+        {"tag": "options",
+         "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"],
+         "responses": ["Ask me about Branches,departments,HODs,Hostels,placements etc.\nI will do my  best to answer them !"],
+         "context": [""]
+         },
+         
+         {"tag": "Contact Details",
+            "patterns": ["GUIST Contact Number","GUIST Address","Pincode","Address"],
+            "responses": ["Gauhati University Institute of Science and Technology(GUIST)\nGauhati University,Guwahati, Assam (India)\nPIN-781014\nPh. No:0361-2672233"],
+            "context": [""]
+           },
+        {"tag": "Hostels",
+        "patterns": ["Hostels"],
+        "responses": ["Total 24 students' Hostels:\n12 Girls' Hostels and 12 Boys', including 3 hostels for research scholars (2 for boys and one 1 for girls)"],
+        "context": [""]
+        },
+        {"tag": "Women Hostels info",
+        "patterns": ["Girls hostel","names Girls hostel "," capacity Girls hostel","Womens hostel","names Womens hostel "," capacity Womens hostel "],
+        "responses": ["1-GUIST Hostel:GUIST Girls' Hostel,\nWomen's Hostels:Rani Gaidalu Law Girls Hostel (AT-2) Seat Capacity : 64,\nChandraprabha Saikia Chatri Niwas (AT-3):Seat Capacity : 104 (Single Seater),\nMulagabharu Girls Halls (AT-10):Seat Capacity : 102,\nNalinibala Devi Girls Hostel (RCC-1): Seat Capacity : 60,\nIndira Miri Girls Hostel (RCC-2): Seat Capacity : 124,\nPuspalata Das Girls Hostel (RCC-3):Seat Capacity : 130,\nPadmawati Devi Phukanani Girls Hostel (RCC-4):Seat Capacity : 106,\n New Girls Hostel (RCC-5):Seat Capacity : 160,\nNew Girls Hostel (RCC-6):Seat Capacity : 106,\nNew Girls Hostel (RCC-7) ,\nResearch Scholars' Hostels :Gandhi Bhawan Girls' Hostel Seat Capacity : 36"],
+        "context": [""]
+        },
+        {"tag": "Men Hostel Info",
+        "patterns": ["Mens hostel","names Mens hostel "," capacity Mens hostel","Boys hostel","names Boys hostel "," capacity Boys hostel "],
+        "responses": ["Men's Hostels:\nLakshminath Bezbaruah Boys Hostel (AT-4)Seat Capacity:32\n Sahityacharya Atul Chandra Hazarika Boys Hostel (AT-5)Seat Capacity :32\n Padmanath Gohain Baruah Boys Hostel (AT-6)Seat Capacity :32\n Lachit Barphukan Boys Hostel (AT-7)Seat Capacity :32\n Rupkonwar Jyotiprasasd Agarwala Boys Hostel (AT-8 Seat Capacity : 102 (Single Seater)\nJnanadabhiram Baruah Law Boys Hostel (AT-9)Seat Capacity : 102\nMadhab Bezbaruah Boys Hostel (RCC-1)Seat Capacity : 102\nGopinath Bardoloi Boys Hostel (RCC-2)Seat Capacity : 160\nDr Banikanta Kakati Boys Hostel (RCC-3)Seat Capacity : 102\nDr Bhubaneswar Baruah Boys Hostel (RCC-4)Seat Capacity : 102\nResearch Scholars' Hostels:    V Venkata Rao Research Scholars Boys Hostel (RCC-5)Seat Capacity : 80\n Babu Jagjivan Ram Research Scholars Boys' HostelSeat Capacity : 80"],
+        "context": [""]
+        }
+        ]
+}

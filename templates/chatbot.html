@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+ <head>   
+    <meta name="viewport" 
+    content="width-device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" 
+     crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+
+    <title>chatbot</title>
+
+    <style type="text/css">
+
+        ::-webkit-scrollbar{
+            width:0;
+
+        }
+
+          *{
+              margin: 0;
+              padding:0;
+              box-sizing: border-box;
+           }
+
+           body{
+               width:100vw;
+               height:100vh;
+               display:grid;
+               background: url("{{ url_for('static',filename='images/guist.jpg') }}");
+               justify-content: center;
+               overflow:hidden ;
+           }
+
+           #main{
+               width: 100vw;
+               max-width: 540px;
+               background-color: #fff;
+               opacity: 85%;
+               height: 100vh;
+               box-shadow:inset 0 0 10px 4px #1116;
+           }
+
+           h2{
+               text-align: center;
+               font-family: monospace;
+               background:#111 ;
+               color:#fff;
+               padding: 8px;
+               text-shadow: 1px 1px 4px #111;
+               margin-bottom:8px;
+                
+
+           }
+
+           #msg_area{
+               height: 82%;
+               padding:0 12px;
+               overflow-y:scroll;
+               scroll-behavior: smooth;
+           }
+
+           #bot{
+               width: 50px;
+               height: 50px;
+               background: url("{{ url_for('static',filename='images/gu-logo.png') }}");
+               background-size: 100%;
+               border-radius: 50%;
+               margin: 10px;
+           }
+            
+           #robot{
+               display: flex;
+               align-items: center;
+           }
+
+           h3{
+               font-family: monospace;
+               font-size: 20px;
+           }
+
+           #input{
+               height: 7%;
+               min-height: 42px;
+               display: grid;
+               grid-template-columns: 70% 30%;
+               margin:8px 16px;
+               border-radius: 32px;
+               background:linear-gradient(#ececee 50%,#1c1f46);
+               box-shadow: inset 0 1px 0 #777;
+           }
+
+           #text{
+               outline: none;
+               font-size: 20px;
+               background:#ececee;
+               color:#333;
+               border-radius:32px 0 32px 32px;
+               padding:0 16px;
+               border:solid 1px #777;
+               border-right: none;
+           }
+
+           #send{
+               outline:none;
+               font-size:20px;
+               color:#eee;
+               background:#1c1f46;
+               border:none;
+               border-radius:32px;
+               transition-duration: 0.1s;
+           }
+           
+           #send-active{
+               font-size: 16px;
+           }
+
+           .left, .right{
+
+            font-size:18px;
+            font-family:monospace;
+            display: inline-block;
+            width:auto;
+            max-width: 60%;
+            padding: 14px;
+            word-wrap: break-word ;
+            margin:8px 14px;
+
+           }
+           
+           .left{
+               float:left;
+               color:#000;
+               background:#b3bfca;
+               border-radius:0px 16px 16px 16px;
+           }
+
+           .right{
+               float:right;
+               color:#fff;
+               background:#1c1f46;
+               border-radius: 0 16px 16px 16px;
+           }
+
+
+           
+           .msgCon1,.msgCon2{
+               width:100%;
+               display:inline-block;
+           }
+
+            
+
+    </style>
+
+
+     
+ </head>
+ <body onload="start()">
+    
+  <div id="main">
+      <h2>LUIT</h2>
+
+  <div id="msg_area">
+      <div id="robot">
+          <div id="bot"></div>
+          <h3 class="logo">GUIST Query Bot</h3>
+        
+      </div>
+      
+  </div> 
+  
+
+        <form action="/predict" method="post">
+          <div id="input">
+          <input type="text" placeholder="Type a question" id="text">
+          <!-- <button id="send" type="submit" onclick="getValue()">Send <i class="fa fa-paper-plane"></i></button> -->
+          <button id="send" type="submit" onclick="change_label()">Send <i class="fa fa-paper-plane"></i></button>
+
+       </div>
+        </form>
+
+  </div>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.js" 
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script> -->
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js" 
+  integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg==" 
+  crossorigin="anonymous"
+   referrerpolicy="no-referrer"></script> 
+
+<script type="text/javascript">
+
+   
+ function start()
+ {
+     let res_msg=document.createElement('div');
+     res_msg.innerHTML="Hello I am Luit,the GU bot,how can I help you?";
+     res_msg.setAttribute("class","left");
+     document.getElementById('msg_area').appendChild(res_msg)
+   
+ }
+
+        
+    $(document).ready(function(){
+        $("form").on('submit', function(e)
+    {
+        console.log('hello');
+    e.preventDefault();
+    $.ajax({
+        type:'POST',
+    url:'/predict',
+        data:{
+            msg: $("#text").val()
+        }
+           }).done(function (data) {
+        
+            
+            
+            const req = $('#text').val();
+
+               if (!req) {
+
+               }
+
+               else {
+                   let res = data
+                   console.log(res)
+
+                   let msg_req = document.createElement('div');
+                   let msg_res = document.createElement('div');
+
+                   let Con1 = document.createElement('div');
+                   let Con2 = document.createElement('div');
+
+                   Con1.setAttribute("class", "msgCon1");
+                   Con2.setAttribute("class", "msgCon2");
+
+                   msg_req.innerHTML = req;
+                   msg_res.innerHTML = res;
+
+                   msg_req.setAttribute("class", "right");
+                   msg_res.setAttribute("class", "left");
+
+                   let message = document.getElementById('msg_area');
+
+                   message.appendChild(Con1);
+                   message.appendChild(Con2);
+
+                   Con1.appendChild(msg_req);
+                   Con2.appendChild(msg_res);
+
+                   document.getElementById('text').value = "";
+
+
+                   function scroll() {
+                       var scrollMsg = document.getElementById('msg_area');
+                       scrollMsg.scrollTop = scrollMsg.scrollHeight;
+
+                   }
+                   scroll();
+
+               }
+
+    });
+            event.preventDefault();
+        });
+    });
+ </script>
+ 
+ </body>
+
+ 
+
+
+ </html>
